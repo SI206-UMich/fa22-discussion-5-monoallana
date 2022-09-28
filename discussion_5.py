@@ -42,15 +42,28 @@ class Warehouse:
 
     # Adds an item to the warehouse
     def add_item(self, item):
-        pass
+        self.items.append(item)
 
     # Returns the item in the warehouse with the most stock
     def get_max_stock(self):
-        pass
+        max_stock = 0
+        max_name = None
+        for item in self.items:
+            if item.stock > max_stock:
+                max_stock = item.stock
+                max_name = item
+        return max_name
 
     # Returns the item in the warehouse with the highest price
+
     def get_max_price(self):
-        pass
+        max_price = 0
+        max_name = None
+        for item in self.items:
+            if item.price > max_price:
+                max_price = item.price
+                max_name = item
+        return max_name
 
 
 # Tests
@@ -73,17 +86,26 @@ class TestAllMethods(unittest.TestCase):
     # Check to see whether you can add an item to the warehouse
 
     def test_add_item(self):
-        pass
+        Costco = Warehouse([self.item1, self.item2])
+        Costco.add_item(self.item3)
+        self.assertEqual(Costco.items, [self.item1, self.item2, self.item3])
 
     # Check to see whether warehouse correctly returns the item with the most stock
 
     def test_warehouse_max_stocks(self):
-        pass
+        Costco = Warehouse([self.item1, self.item2, self.item4])
+        max_stock = Costco.get_max_stock()
+        self.assertEqual(max_stock, self.item4)
+
+        Costco.add_item(self.item3)
+        new_max_stock = Costco.get_max_stock()
+        self.assertEqual(new_max_stock, self.item3)
 
     # Check to see whether the warehouse correctly return the item with the highest price
-
     def test_warehouse_max_price(self):
-        pass
+        Costco = Warehouse([self.item1, self.item2, self.item3])
+        max_price = Costco.get_max_price()
+        self.assertEqual(max_price, self.item1)
 
 
 def main():
