@@ -1,5 +1,5 @@
 import unittest
-
+# what do
 # Counts the number of a's in a sentence (e.g., a string)
 
 
@@ -55,7 +55,6 @@ class Warehouse:
         return max_name
 
     # Returns the item in the warehouse with the highest price
-
     def get_max_price(self):
         max_price = 0
         max_name = None
@@ -76,6 +75,7 @@ class TestAllMethods(unittest.TestCase):
         self.item3 = Item("Water", 1, 100)
         self.item4 = Item("Fanta", 2, 60)
         self.item5 = Item("CocaCola", 3, 40)
+        self.item6 = Item("Pepsi", 3, 40)
 
     # Check to see whether count_a works
     def test_count_a(self):
